@@ -67,7 +67,7 @@ install(
 )
 
 install(
-    FILES robot_pose_ekf.launch example_with_gps.launch
+    FILES launch/robot_pose_ekf.launch launch/example_with_gps.launch
     DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
@@ -113,8 +113,8 @@ add_dependencies(test_robot_pose_ekf_zero_covariance ${${PROJECT_NAME}_EXPORTED_
 
 # This has to be done after we've already built targets, or catkin variables get borked
 find_package(rostest REQUIRED)
-add_rostest(${CMAKE_CURRENT_SOURCE_DIR}/test/test_robot_pose_ekf.launch)
-add_rostest(${CMAKE_CURRENT_SOURCE_DIR}/test/test_robot_pose_ekf_zero_covariance.launch)
+add_rostest(${CMAKE_CURRENT_SOURCE_DIR}/launch/test_robot_pose_ekf.launch)
+add_rostest(${CMAKE_CURRENT_SOURCE_DIR}/launch/test_robot_pose_ekf_zero_covariance.launch)
 
 endif(CATKIN_ENABLE_TESTING)
 endif(CMAKE_SYSTEM_NAME MATCHES "Linux")
